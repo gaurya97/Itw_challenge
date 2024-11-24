@@ -13,35 +13,31 @@
 
 <body> 
 	<div class="root"> 
-		<h1>Custom Table</h1> 
+		<h3>Table:1 Big Cats</h3> 
 		<div class="form"> 
 			<div> 
-				<h2 id="formTitle1">Add item</h2> 
+				<h4 id="formTitle1">Add or Edit item</h4> 
 			</div> 
-			<input type="text"
+			<input style="outline: none;" type="text"
 				id="SpeciesInput1"
-				placeholder="Enter Species"
+				readonly
 				title="Type in a Species"
-				value="" /> 
+				value="Big Cats" /> 
 			<input type="text"
 				id="NameInput1"
 				value=""
 				placeholder="Enter Name"
 				title="Type in a name" /> 
-			<input type="text"
+			<input type="number"
+			    min="0"
+				oninput="validateSizeInput(this)"
 				id="SizeInput1"
-				placeholder="Enter Size"
+				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput1"
 				placeholder="Enter Location"
 				title="Type in a name" />
-			<input type="file"
-				id="ImageInput1"
-				value=""
-				placeholder="Add Image"
-				title="Type in a name" /> 
-
 				<input type="hidden"
 				id="hiddenInput1"
 				value="" /> 
@@ -55,68 +51,63 @@
 					onclick="editItem()"> 
 				Update 
 			</button>  -->
-		</div> 
-
-		<!-- <h2>Search for Item...</h2> 
-		<input type="text"
-			id="searchInput"
-			onkeyup="searchItems()"
-			placeholder="Search for names.."
-			title="Type in a name" />  -->
+		</div>
+		<p class="err" id="errBigCat">Duplicate Entry Not Allow</p>
 
 		<table class="Table" id="BigCattable"> 
 			<tr id="BigCatTr" class="titles"> 
 				<th style="width: 5%">S.no</th> 
 				<th id="BigCatSpecies" data-name="Species"> 
 					Species
-                    <!-- <p class="hover">Sort By Species</p> -->
+               
 				</th> 
-				<th id="BigCatName" data-name="Name"> 
+				<th id="BigCatName" style="cursor: pointer;" data-name="Name"> 
 					Name
-                    <!-- <p class="hover">Sort By Name</p> -->
+					<p style="font-size: 10px;">[Sort]</p>
 				</th> 
 				
-                <th id="BigCatSize" data-name="Size" > 
+                <th id="BigCatSize" style="cursor: pointer;" data-name="Size" > 
 					Size 
+					<p style="font-size: 10px;">[Sort]</p>
 				</th> 
-                <th id="BigCatLocation" data-name="Location">
+                <th id="BigCatLocation" style="cursor: pointer;" data-name="Location">
 					Location 
+					<p style="font-size: 10px;">[Sort]</p>
 				</th> 
                 <th id="BigCatImage" data-name="Image">
-					Image 
+					Image
 				</th> 
-				<th class="Edit" id="BigCatEdit" style="width: 2%">Edit Entry</th> 
-				<th class="Delete" id="BigCatDelete" style="width: 2%">Delete Entry</th> 
+				
+				<th class="Edit" id="BigCatEdit" style="width: 2%; cursor: pointer;">Edit</th> 
+				<th class="Delete" id="BigCatDelete" style="width: 2%; cursor: pointer;">Delete</th> 
 			</tr> 
 		</table> 
-
+		<h3>Table:2 Dogs</h3>
 		<div class="form"> 
 			<div> 
-				<h2 id="formTitle2">Add item</h2> 
+				<h4 id="formTitle2">Add or Edit item</h4> 
 			</div> 
 			<input type="text"
 				id="SpeciesInput2"
-				placeholder="Enter Species"
+				style="outline: none;"
+				readonly
 				title="Type in a Species"
-				value="" /> 
+				value="Dog" /> 
 			<input type="text"
 				id="NameInput2"
 				value=""
 				placeholder="Enter Name"
 				title="Type in a name" /> 
-			<input type="text"
+			<input type="number"
+			oninput="validateSizeInput(this)"
+			min="0"
 				id="SizeInput2"
-				placeholder="Enter Size"
+				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput2"
 				placeholder="Enter Location"
 				title="Type in a name" />
-			<input type="file"
-				id="ImageInput2"
-				value=""
-				placeholder="Add Image"
-				title="Type in a name" /> 
 				<input type="hidden"
 				id="hiddenInput2"
 				value="" /> 
@@ -125,72 +116,61 @@
 					> 
 				Add Item 
 			</button> 
-
-			<!-- <button id="editItem2"
-					style="display: none"
-					onclick="editItem()"> 
-				Update 
-			</button>  -->
 		</div> 
-
-
-
-
-
-
-		<table class="Table" id="Dogstable"> 
+		<p class="err" id="errDogs">Duplicate Entry Not Allow</p>
+	<table class="Table" id="Dogstable"> 
 			<tr id="DogsTr" class="titles"> 
 				<th style="width: 5%">S.no</th> 
 				<th id="DogsSpecies" data-name="Species"> 
 					Species
-                    <!-- <p class="hover">Sort By Species</p> -->
+                   
 				</th> 
-				<th id="DogsName" data-name="Name"> 
+				<th id="DogsName" style="cursor: pointer;" data-name="Name"> 
 					Name
-                    <!-- <p class="hover">Sort By Name</p> -->
+                    <p style="font-size: 10px;">[Sort]</p>
 				</th> 
 				
                 <th id="DogsSize" data-name="Size" > 
 					Size 
 				</th> 
-                <th id="DogsLocation" data-name="Location" > 
+                <th id="DogsLocation" style="cursor: pointer;" data-name="Location" > 
 					Location 
+					<p style="font-size: 10px;">[Sort]</p>
 				</th> 
                 <th id="DogsImage" data-name="Image"> 
-					Image 
+					Image
 				</th> 
-				<th class="Edit" id="DogsEdit" style="width: 2%">Edit Entry</th> 
-				<th class="Delete" id="DogsDelete" style="width: 2%">Delete Entry</th> 
+				<th class="Edit" id="DogsEdit" style="width: 2%; ">Edit</th> 
+				<th class="Delete" id="DogsDelete" style="width: 2%; ">Delete</th> 
 			</tr> 
 		</table> 
-
+		<h3>Table:3 Big Fish</h3>
 		<div class="form"> 
 			<div> 
-				<h2 id="formTitle">Add item</h2> 
+				<h4 id="formTitle">Add or Edit item</h4> 
 			</div> 
 			<input type="text"
 				id="SpeciesInput3"
-				placeholder="Enter Species"
+				style="outline: none;"
+				readonly
 				title="Type in a Species"
-				value="" /> 
+				value="Big Fish" /> 
 			<input type="text"
 				id="NameInput3"
 				value=""
 				placeholder="Enter Name"
 				title="Type in a name" /> 
-			<input type="text"
+			<input type="number"
+			oninput="validateSizeInput(this)"
+			min="0"
 				id="SizeInput3"
-				placeholder="Enter Size"
+				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput3"
 				placeholder="Enter Location"
 				title="Type in a name" />
-			<input type="file"
-				id="ImageInput3"
-				value=""
-				placeholder="Add Image"
-				title="Type in a name" /> 
+
 				<input type="hidden"
 				id="hiddenInput3"
 				value="" /> 
@@ -204,7 +184,7 @@
 				Update 
 			</button>  -->
 		</div> 
-
+		<p class="err" id="errBigFish">Duplicate Entry Not Allow</p>
 
 
 
@@ -221,8 +201,9 @@
                     <!-- <p class="hover">Sort By Name</p> -->
 				</th> 
 				
-                <th id="BigFishSize" data-name="Size" > 
+                <th id="BigFishSize" style="cursor: pointer;" data-name="Size" > 
 					Size 
+					<p style="font-size: 10px;">[Sort]</p>
 				</th> 
                 <th id="BigFishLocation" data-name="Location"> 
 					Location 
@@ -230,8 +211,8 @@
                 <th id="BigFishImage" data-name="Image"> 
 					Image 
 				</th> 
-				<th class="Edit" id="BigFishEdit" style="width: 2%">Edit Entry</th> 
-				<th class="Delete" id="BigFishDelete" style="width: 2%">Delete Entry</th> 
+				<th class="Edit" id="BigFishEdit" style="width: 2% ;">Edit</th> 
+				<th class="Delete" id="BigFishDelete" style="width: 2% ;">Delete</th> 
 			</tr> 
 		</table> 
 

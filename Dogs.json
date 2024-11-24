@@ -1,32 +1,35 @@
 {
 "Dogs": [
       {
+        "Id": 1,
         "Species": "Dog",
         "Name": "Rottweiler",
         "Size": "2 ft",
         "Location": "Germany",
-        "Image": "rottweiler.jpg"
+        "Image": "./Images/Rottweiler.jpeg"
       },
       {
+        "Id": 2,
         "Species": "Dog",
         "Name": "German Shepherd",
         "Size": "2 ft",
         "Location": "Germany",
-        "Image": "german_shepherd.jpg"
+        "Image": "./Images/German Shepherd.jpeg"
       },
-      {
+      {"Id":3,
         "Species": "Dog",
         "Name": "Labrador",
         "Size": "2 ft",
         "Location": "UK",
-        "Image": "labrador.jpg"
+        "Image": "./Images/Labrador.jpeg"
       },
-      {
+      { 
+        "Id": 4,
         "Species": "Dog",
         "Name": "Alabai",
         "Size": "4 ft",
         "Location": "Turkey",
-        "Image": "alabai.jpg"
+        "Image": "./Images/Alabai.jpeg"
       }
     ]
 }

@@ -6,7 +6,7 @@
         "Name": "Tiger",
         "Size": "10 ft",
         "Location": "Asia",
-        "Image": "tiger.jpg"
+        "Image": "./Images/Tiger.jpg"
       },
       {
          "Id": 2,
@@ -14,7 +14,7 @@
         "Name": "Lion",
         "Size": "8 ft",
         "Location": "Africa",
-        "Image": "lion.jpg"
+        "Image": "./Images/Lion.avif"
       },
       {
         "Id": 3,
@@ -22,7 +22,7 @@
         "Name": "Leopard",
         "Size": "5 ft",
         "Location": "Africa and Asia",
-        "Image": "leopard.jpg"
+        "Image": "./Images/Leopard.jpg"
       },
       {
         "Id": 4,
@@ -30,7 +30,7 @@
         "Name": "Cheetah",
         "Size": "5 ft",
         "Location": "Africa",
-        "Image": "cheetah.jpg"
+        "Image": "./Images/Cheetah.jpeg"
       },
       {
         "Id": 5,
@@ -38,7 +38,7 @@
         "Name": "Caracal",
         "Size": "3 ft",
         "Location": "Africa",
-        "Image": "caracal.jpg"
+        "Image": "./Images/Caracal.webp"
       },
       {
         "Id": 6,
@@ -46,7 +46,7 @@
         "Name": "Jaguar",
         "Size": "5 ft",
         "Location": "Amazon",
-        "Image": "jaguar.jpg"
+        "Image": "./Images/jaguar.jpeg"
       }
     ]
   }
