@@ -51,34 +51,84 @@
 			placeholder="Search for names.."
 			title="Type in a name" />  -->
 
-		<table id="table"> 
-			<tr class="titles"> 
+		<table class="Table" id="BigCattable"> 
+			<tr id="BigCatTr" class="titles"> 
 				<th style="width: 5%">S.no</th> 
-				<th 
-					id="Species"
-					onclick="sortItems('name')"> 
+				<th id="BigCatSpecies" data-name="Species"> 
 					Species
                     <!-- <p class="hover">Sort By Species</p> -->
 				</th> 
-				<th id="Name"
-					onclick="sortItems('category')"> 
+				<th id="BigCatName" data-name="Name"> 
 					Name
                     <!-- <p class="hover">Sort By Name</p> -->
 				</th> 
 				
-                <th > 
+                <th id="BigCatSize" data-name="Size" > 
 					Size 
 				</th> 
-                <th > 
+                <th id="BigCatLocation" data-name="Location">
 					Location 
 				</th> 
-                <th> 
+                <th id="BigCatImage" data-name="Image">
 					Image 
 				</th> 
-				<th style="width: 2%">Edit Entry</th> 
-				<th style="width: 2%">Delete Entry</th> 
+				<th class="Edit" id="BigCatEdit" style="width: 2%">Edit Entry</th> 
+				<th class="Delete" id="BigCatDelete" style="width: 2%">Delete Entry</th> 
 			</tr> 
 		</table> 
+
+		<table class="Table" id="Dogstable"> 
+			<tr id="DogsTr" class="titles"> 
+				<th style="width: 5%">S.no</th> 
+				<th id="DogsSpecies" data-name="Species"> 
+					Species
+                    <!-- <p class="hover">Sort By Species</p> -->
+				</th> 
+				<th id="DogsName" data-name="Name"> 
+					Name
+                    <!-- <p class="hover">Sort By Name</p> -->
+				</th> 
+				
+                <th id="DogsSize" data-name="Size" > 
+					Size 
+				</th> 
+                <th id="DogsLocation" data-name="Location" > 
+					Location 
+				</th> 
+                <th id="DogsImage" data-name="Image"> 
+					Image 
+				</th> 
+				<th class="Edit" id="DogsEdit" style="width: 2%">Edit Entry</th> 
+				<th class="Delete" id="DogsDelete" style="width: 2%">Delete Entry</th> 
+			</tr> 
+		</table> 
+
+		<table class="Table" id="BigFishtable"> 
+			<tr id="BigFishTr" class="titles"> 
+				<th style="width: 5%">S.no</th> 
+				<th id="BigFishSpecies" data-name="Species"> 
+					Species
+                    <!-- <p class="hover">Sort By Species</p> -->
+				</th> 
+				<th id="BigFishName" data-name="Name"> 
+					Name
+                    <!-- <p class="hover">Sort By Name</p> -->
+				</th> 
+				
+                <th id="BigFishSize" data-name="Size" > 
+					Size 
+				</th> 
+                <th id="BigFishLocation" data-name="Location"> 
+					Location 
+				</th> 
+                <th id="BigFishImage" data-name="Image"> 
+					Image 
+				</th> 
+				<th class="Edit" id="BigFishEdit" style="width: 2%">Edit Entry</th> 
+				<th class="Delete" id="BigFishDelete" style="width: 2%">Delete Entry</th> 
+			</tr> 
+		</table> 
+
 		<script src="index.js"></script> 
 	</div> 
 </body> 

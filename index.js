@@ -2,11 +2,19 @@
 
 // For edit item 
 let index = -1; 
-const table = document.getElementById("table"); 
+const BigCatsTableName = document.getElementById("Name");
+const BigCatsTableSpecies = document.getElementById("Species");
+const BigCatsTableSize = document.getElementById("Size");
+const BigCatsTableLocation = document.getElementById("Location");
+const BigCatTr = document.getElementById("BigCatTr");
+// console.log(BigCatTr);
+const Tables =document.getElementsByClassName('Table');
+const titles =document.getElementsByClassName('titles');
+const Edit =document.getElementsByClassName('Edit');
+const Delete =document.getElementsByClassName('Delete');
 
-
-function addItem(e, i) { 
-	row = table.insertRow(i + 1); 
+function addItem(e, i,TableId) {
+	row = document.getElementById(TableId).insertRow(i + 1);
 	let c0 = row.insertCell(0); 
 	let c1 = row.insertCell(1); 
 	let c2 = row.insertCell(2); 
@@ -39,7 +47,14 @@ class Table {
    SortByName(){
    this.Animal = this.Animal.sort((a,b)=>a.Name.localeCompare(b.Name))
    }
-   
+	SortBySize(){
+		this.Animal = this.Animal.sort((a,b)=>a.Size.localeCompare(b.Size))
+		}
+		SortByLocation(){
+			this.Animal = this.Animal.sort((a,b)=>a.Location.localeCompare(b.Location))
+			}
+
+
    EditAnimal(id,Species,Name,Size,Location){
      this.Animal.map((e)=>{
    if(e.Id === id){
@@ -69,7 +84,7 @@ class Table {
    }
    }
 
-    const GetData =async()=>{
+const LoadTablesData =async()=>{
         try {
             const BigCatsRes =await fetch('./BigCats.json');
         const BigFishRes =await fetch('./BigFish.json');
@@ -79,11 +94,86 @@ class Table {
         const Dogs =await DogsRes.json()
 		console.log(BigCats)
         const BigCatsTable =new Table(BigCats?.BigCats);
-        const BigFishTable =new Table(BigFish);
-        const DogsTable =new Table(Dogs);
-        console.log(BigCatsTable);
-        BigCatsTable.Animal.map((e, i) => addItem(e, i));
-        // console.log(BigCatsTable.Animal);
+        const BigFishTable =new Table(BigFish?.BigFish);
+        const DogsTable =new Table(Dogs?.Dogs);
+        // console.log(BigCatsTable);
+
+Array.from(Tables).forEach((e)=>{
+	console.log(e.id);
+	switch (e.id) { 
+		case "BigCattable": 
+		BigCatsTable.Animal.map((el, i) => addItem(el, i,e.id));
+			break; 
+		case "Dogstable": 
+		DogsTable.Animal.map((el, i) => addItem(el, i,e.id));
+			break;
+			case "BigFishtable": 
+		BigFishTable.Animal.map((el, i) => addItem(el, i,e.id));
+			break;
+		default: 
+			console.log("Default"); 
+	} 
+
+});
+
+Array.from(titles).forEach((e)=>{
+	
+e.addEventListener('click',(e)=>{
+
+	const TitleId =document.getElementById(e.target.id).parentNode.id;
+	const dataSet =e.target.dataset.name;
+	// console.log('from tit',document.getElementById(e.target.id).parentNode.id)
+	// console.log('from titels',e.target.dataset.name);
+switch(TitleId){
+	case "BigCatTr":
+		SortByField(dataSet,BigCatsTable,'BigCattable')
+		break;
+	case "DogsTr":
+		SortByField(dataSet,DogsTable,'Dogstable')
+		break;
+	case "BigFishTr":
+		SortByField(dataSet,BigFishTable,'BigFishtable')
+		break;
+
+}
+
+
+})
+
+	
+
+});
+
+
+const SortByField =(id,tableClass,tableId)=>{
+	
+	remove(tableId)
+	switch (id) { 
+		case "Name": 
+		tableClass.SortByName();
+			break; 
+		case "Size": 
+		tableClass.SortBySize();
+			break;
+			case "Location": 
+			tableClass.SortByLocation();
+			break;
+		default: 
+			console.log("Default"); 
+	} 
+	tableClass.Animal.map((e, i) => addItem(e, i,tableId));
+}
+        
+    
+
+
+		// BigCatTr.addEventListener('click',(e)=>{
+			
+		// })
+
+
+
+
 
         } catch (error) {
             console.log(error);
@@ -93,7 +183,7 @@ class Table {
       }
 
    
-GetData();
+	  LoadTablesData();
 
 
 
@@ -144,7 +234,7 @@ function sortItems(title) {
 	remove(); 
 	switch (title) { 
 		case "name": 
-			sortName(); 
+		
 			break; 
 		case "category": 
 			sortCat(); 
@@ -159,28 +249,15 @@ function sortItems(title) {
 } 
 
 // Clear the table before updation 
-function remove() { 
+function remove(tableId) { 
 	console.log("removed"); 
+	let table =document.getElementById(tableId);
 	while (table.rows.length > 1) table.deleteRow(-1); 
 } 
 
 // Sort with names 
 function sortName() { 
-	data.sort((a, b) => { 
-		let fa = a.Name.toLowerCase(), 
-			fb = b.Name.toLowerCase(); 
-		console.log(fa, fb); 
 
-		if (fa < fb) { 
-			return -1; 
-		} 
-		if (fa > fb) { 
-			return 1; 
-		} 
-		return 0; 
-	}); 
-	if (flag.Name) data.reverse(); 
-	flag.Name = !flag.Name; 
 } 
 
 // Sort with categories 
