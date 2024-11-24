@@ -20,8 +20,9 @@ body {
 
 .form { 
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
-	display:flexbox; 
-	padding: 1rem; 
+	display:flex; 
+	justify-content: flex-start;
+	align-items: center;
 	width: 100%;
 	font-size: 16px; 
 	background-color: rgb(247, 246, 246); 
@@ -29,7 +30,7 @@ body {
 } 
 
 .form>div { 
-	width: 100%; 
+	width:15%; 
 } 
 
 .form>button { 
@@ -44,21 +45,13 @@ body {
 } 
 
 .form>input { 
-	width: 25%; 
-	margin: 2%; 
+	width: 16%; 
+	margin: 1%; 
 	font-size: 16px; 
-	padding: 1%; 
+	padding: 1%;
 	border: 1px solid #ddd; 
 
 } 
-
-.hover{
-    font-size: 12px; position: absolute; bottom: -5%; background-color: lightgreen; width: 40%; text-align: center;  color:lightgreen;
-}
-.hover:hover{
-background-color: black;
-color: white;
-}
 .Table { 
 	border-collapse: collapse; 
 	width: 100%; 
@@ -66,7 +59,7 @@ color: white;
 	font-size: 18px; 
 } 
 th{
-    width:auto; height:10% ;border:1px solid black; position: relative;
+    width:auto; height:10% ;border:1px solid black;
 }
 
 
@@ -74,6 +67,8 @@ th{
 .Table td { 
 	text-align: center; 
 	padding: 12px; 
+	width: 12.5%; 
+
 } 
 
 .Table tr { 
@@ -118,4 +113,31 @@ font-weight: bold;
 	font-weight: bold;
 	color: blue;
 	font-style: italic;
+}
+@media screen and (max-width: 768px) {
+    .form > input {
+        width: 80%; /* Full width for small screens */
+    }
+	.form{
+		flex-direction: column;
+		margin: auto;
+	}
+	.form>div{
+		width:100%;
+		text-align: center;
+	}
+
+    .form > button {
+        width: 30%;
+		 /* Buttons stack below inputs */
+		 margin: 1rem;
+		 height: 30px;
+    }
+
+    .Table th, .Table td {
+        font-size: 14px;
+		width: 12.5%; 
+
+		/* Adjust text for smaller screens */
+    }
 }

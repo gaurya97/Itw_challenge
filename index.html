@@ -26,16 +26,19 @@
 			<input type="text"
 				id="NameInput1"
 				value=""
+				required
 				placeholder="Enter Name"
 				title="Type in a name" /> 
 			<input type="number"
 			    min="0"
 				oninput="validateSizeInput(this)"
+				required
 				id="SizeInput1"
 				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput1"
+				required
 				placeholder="Enter Location"
 				title="Type in a name" />
 				<input type="hidden"
@@ -55,8 +58,9 @@
 		<p class="err" id="errBigCat">Duplicate Entry Not Allow</p>
 
 		<table class="Table" id="BigCattable"> 
-			<tr id="BigCatTr" class="titles"> 
-				<th style="width: 5%">S.no</th> 
+			<tr id="BigCatTr" class="titles">
+				<!-- style="width: 5%"  -->
+				<th >S.no</th> 
 				<th id="BigCatSpecies" data-name="Species"> 
 					Species
                
@@ -91,21 +95,25 @@
 				id="SpeciesInput2"
 				style="outline: none;"
 				readonly
+				
 				title="Type in a Species"
 				value="Dog" /> 
 			<input type="text"
 				id="NameInput2"
+				required
 				value=""
 				placeholder="Enter Name"
 				title="Type in a name" /> 
 			<input type="number"
 			oninput="validateSizeInput(this)"
 			min="0"
+			required
 				id="SizeInput2"
 				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput2"
+				required
 				placeholder="Enter Location"
 				title="Type in a name" />
 				<input type="hidden"
@@ -120,7 +128,8 @@
 		<p class="err" id="errDogs">Duplicate Entry Not Allow</p>
 	<table class="Table" id="Dogstable"> 
 			<tr id="DogsTr" class="titles"> 
-				<th style="width: 5%">S.no</th> 
+				<!-- style="width: 5%" -->
+				<th >S.no</th> 
 				<th id="DogsSpecies" data-name="Species"> 
 					Species
                    
@@ -157,6 +166,7 @@
 				value="Big Fish" /> 
 			<input type="text"
 				id="NameInput3"
+				required
 				value=""
 				placeholder="Enter Name"
 				title="Type in a name" /> 
@@ -164,10 +174,12 @@
 			oninput="validateSizeInput(this)"
 			min="0"
 				id="SizeInput3"
+				required
 				placeholder="Enter Size In Feet"
 				title="Type in a name" /> 
 			<input type="text"
 				id="LocationInput3"
+				required
 				placeholder="Enter Location"
 				title="Type in a name" />
 
@@ -190,8 +202,9 @@
 
 
 		<table class="Table" id="BigFishtable"> 
-			<tr id="BigFishTr" class="titles"> 
-				<th style="width: 5%">S.no</th> 
+			<tr id="BigFishTr" class="titles">
+				<!-- style="width: 5%"  -->
+				<th >S.no</th> 
 				<th id="BigFishSpecies" data-name="Species"> 
 					Species
                     <!-- <p class="hover">Sort By Species</p> -->
