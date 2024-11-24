@@ -4,6 +4,7 @@
 let index = -1; 
 const table = document.getElementById("table"); 
 
+
 function addItem(e, i) { 
 	row = table.insertRow(i + 1); 
 	let c0 = row.insertCell(0); 
@@ -15,9 +16,11 @@ function addItem(e, i) {
 	let c6 = row.insertCell(6);
 	let c7 = row.insertCell(7);
 	c0.innerText = i + 1; 
-	c1.innerText = e.Name; 
-	c2.innerText = e.Cat; 
-	c3.innerText = e.Year; 
+	c1.innerText = e.Species; 
+	c2.innerText = e.Name; 
+	c3.innerText = e.Size;
+	c4.innerText = e.Location;
+	c5.innerText = e.Image;
 	c6.innerHTML = "✍";
 	c7.innerHTML = "☒"; 
 	c6.classList.add("zoom"); 
@@ -74,12 +77,13 @@ class Table {
         const BigCats =await BigCatsRes.json()
         const BigFish =await BigFishRes.json()
         const Dogs =await DogsRes.json()
-        const BigCatsTable =new Table(BigCats);
+		console.log(BigCats)
+        const BigCatsTable =new Table(BigCats?.BigCats);
         const BigFishTable =new Table(BigFish);
         const DogsTable =new Table(Dogs);
         console.log(BigCatsTable);
-        // BigCatsTable.Animal.map((e, i) => addItem(e, i));
-        console.log(BigCatsTable.Animal);
+        BigCatsTable.Animal.map((e, i) => addItem(e, i));
+        // console.log(BigCatsTable.Animal);
 
         } catch (error) {
             console.log(error);
