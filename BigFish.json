@@ -1,0 +1,32 @@
+{
+"BigFish": [
+      {
+        "Species": "Big Fish",
+        "Name": "Humpback Whale",
+        "Size": "15 ft",
+        "Location": "Atlantic Ocean",
+        "Image": "humpback_whale.jpg"
+      },
+      {
+        "Species": "Big Fish",
+        "Name": "Killer Whale",
+        "Size": "12 ft",
+        "Location": "Atlantic Ocean",
+        "Image": "killer_whale.jpg"
+      },
+      {
+        "Species": "Big Fish",
+        "Name": "Tiger Shark",
+        "Size": "8 ft",
+        "Location": "Ocean",
+        "Image": "tiger_shark.jpg"
+      },
+      {
+        "Species": "Big Fish",
+        "Name": "Hammerhead Shark",
+        "Size": "8 ft",
+        "Location": "Ocean",
+        "Image": "hammerhead_shark.jpg"
+      }
+    ]
+  }

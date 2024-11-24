@@ -1,0 +1,86 @@
+<!-- index.html -->
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1" /> 
+	<link href="index.css"
+		rel="stylesheet" /> 
+</head> 
+
+<body> 
+	<div class="root"> 
+		<h1>Custom Table</h1> 
+		<div class="form"> 
+			<div> 
+				<h2 id="formTitle">Add item</h2> 
+			</div> 
+			<input type="text"
+				id="nameInput"
+				placeholder="Enter Name"
+				title="Type in a name"
+				value="" /> 
+			<input type="text"
+				id="catInput"
+				value=""
+				placeholder="Enter Category"
+				title="Type in a name" /> 
+			<input type="Number"
+				id="yearInput"
+				value=""
+				placeholder="Enter year"
+				title="Type in a name" /> 
+			<button id="submitItem"
+					type="button"
+					onclick="submitItem()"> 
+				Add Item 
+			</button> 
+			<button id="editItem"
+					style="display: none"
+					onclick="editItem()"> 
+				Update 
+			</button> 
+		</div> 
+
+		<!-- <h2>Search for Item...</h2> 
+		<input type="text"
+			id="searchInput"
+			onkeyup="searchItems()"
+			placeholder="Search for names.."
+			title="Type in a name" />  -->
+
+		<table id="table"> 
+			<tr class="titles"> 
+				<th style="width: 5%">S.no</th> 
+				<th 
+					id="Species"
+					onclick="sortItems('name')"> 
+					Species
+                    <!-- <p class="hover">Sort By Species</p> -->
+				</th> 
+				<th id="Name"
+					onclick="sortItems('category')"> 
+					Name
+                    <!-- <p class="hover">Sort By Name</p> -->
+				</th> 
+				
+                <th > 
+					Size 
+				</th> 
+                <th > 
+					Location 
+				</th> 
+                <th> 
+					Image 
+				</th> 
+				<th style="width: 2%">Edit Entry</th> 
+				<th style="width: 2%">Delete Entry</th> 
+			</tr> 
+		</table> 
+		<script src="index.js"></script> 
+	</div> 
+</body> 
+
+</html>
