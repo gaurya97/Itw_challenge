@@ -121,6 +121,10 @@ font-weight: bold;
 	.form{
 		flex-direction: column;
 		margin: auto;
+		width: 124%;
+		background-color: white;
+		border: none;
+		box-shadow: none;
 	}
 	.form>div{
 		width:100%;
