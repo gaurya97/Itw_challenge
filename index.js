@@ -1,6 +1,3 @@
-// script.js 
-
-// For edit item 
 let index = -1; 
 const BigCatsTableName = document.getElementById("Name");
 const BigCatsTableSpecies = document.getElementById("Species");
@@ -31,12 +28,62 @@ function addItem(e, i,TableId) {
 	c5.innerText = e.Image;
 	c6.innerHTML = "✍";
 	c7.innerHTML = "☒"; 
-	c6.classList.add("zoom"); 
-	c7.classList.add("zoom"); 
-	c6.addEventListener("click", () => edit(c4, i)); 
+	c6.classList.add(`zoom`); 
+	c7.classList.add(`zoom`);
+	c6.addEventListener("click", () => MyEdit(e));
 	c7.addEventListener("click", () => del(e)); 
 } 
 
+
+
+const MyEdit =(e)=>{
+  console.log(e);
+  if(e.Species==='Big Cats'){
+	
+	document.getElementById('submitItem1').innerText='Update';
+	InputForEdit(e,1)
+	
+
+  }
+  else if(e.Species==='Dog'){
+	
+	document.getElementById('submitItem2').innerText='Update';
+	InputForEdit(e,2)
+  }
+  else{
+	document.getElementById('submitItem3').innerText='Update';
+	InputForEdit(e,3)
+  }
+
+ 
+}
+
+const InputForEdit = (e,TableId)=>{
+	document.getElementById(`SpeciesInput${TableId}`).value=e.Species;
+	document.getElementById(`NameInput${TableId}`).value=e.Name;
+	document.getElementById(`SizeInput${TableId}`).value=e.Size;
+	document.getElementById(`LocationInput${TableId}`).value=e.Location;
+	document.getElementById(`hiddenInput${TableId}`).value=e.Id;
+   
+}
+
+const EditedInput =(TableId,MainMethod,flag)=>{
+	const id=document.getElementById(`hiddenInput${TableId}`).value
+	const Species = document.getElementById(`SpeciesInput${TableId}`).value
+	const Name =  document.getElementById(`NameInput${TableId}`).value
+	const Size= document.getElementById(`SizeInput${TableId}`).value
+	const Location = document.getElementById(`LocationInput${TableId}`).value
+	const Image = document.getElementById(`ImageInput${TableId}`).value
+	// console.log('method',EditMethod)
+	if(flag ==='Edit'){
+		MainMethod.EditAnimal(id,Species,Name,Size,Location,Image);
+	}
+	else{
+		MainMethod.AddNewAnimal(id,Species,Name,Size,Location,Image);
+	}
+	
+	
+}
 
 
 class Table {
@@ -57,7 +104,7 @@ class Table {
 
    EditAnimal(id,Species,Name,Size,Location){
      this.Animal.map((e)=>{
-   if(e.Id === id){
+   if(e.Id == id){
    e.Name =Name;
    e.Species=Species;
    e.Size=Size;
@@ -71,7 +118,7 @@ class Table {
    this.Animal =this.Animal.filter((e)=>e.Id!=id);
    }
    
-   AddNewAnimal(Species,Name,Size,Location,image){
+   AddNewAnimal(Id,Species,Name,Size,Location,image){
    this.Animal.push({
    Id:this.Animal.length+1,
    Species:Species,
@@ -144,7 +191,6 @@ switch(TitleId){
 
 });
 
-
 const SortByField =(id,tableClass,tableId)=>{
 	
 	remove(tableId)
@@ -163,13 +209,57 @@ const SortByField =(id,tableClass,tableId)=>{
 	} 
 	tableClass.Animal.map((e, i) => addItem(e, i,tableId));
 }
-        
-    
+
+document.getElementById('submitItem1').addEventListener('click',(el)=>{
+	console.log(el.target.innerText);
+	if(el.target.innerText==='Update'){
+		console.log('upadate started')
+		EditedInput(1,BigCatsTable,'Edit');
+		document.getElementById('submitItem1').innerText ='Add Item'
+		remove('BigCattable');
+		BigCatsTable.Animal.map((e, i) => addItem(e, i,'BigCattable'));
+		console.log(BigCatsTable);
+	}
+	else{
+		EditedInput(1,BigCatsTable,'Add');
+		remove('BigCattable');
+		BigCatsTable.Animal.map((e, i) => addItem(e, i,'BigCattable'));
+	}
+})
 
 
-		// BigCatTr.addEventListener('click',(e)=>{
-			
-		// })
+document.getElementById('submitItem2').addEventListener('click',(el)=>{
+	console.log(el.target.innerText);
+	if(el.target.innerText==='Update'){
+		console.log('upadate started')
+		EditedInput(2,DogsTable,'Edit');
+		document.getElementById('submitItem2').innerText ='Add Item'
+		remove('Dogstable');
+		DogsTable.Animal.map((e, i) => addItem(e, i,'Dogstable'));
+		console.log(BigFishTable);
+	}
+	else{
+		EditedInput(2,DogsTable,'Add');
+		remove('Dogstable');
+		DogsTable.Animal.map((e, i) => addItem(e, i,'Dogstable'));
+	}
+})
+
+document.getElementById('submitItem3').addEventListener('click',(el)=>{
+	console.log(el.target.innerText);
+	if(el.target.innerText==='Update'){
+		console.log('upadate started')
+		EditedInput(3,BigFishTable,'Edit');
+		document.getElementById('submitItem3').innerText ='Add Item'
+		remove('BigFishtable');
+		BigFishTable.Animal.map((e, i) => addItem(e, i,'BigFishtable'));
+		console.log(BigFishTable);
+	}
+	else{
+		EditedInput(3,BigFishTable,'Add');
+	}
+})
+
 
 
 
@@ -196,192 +286,66 @@ const SortByField =(id,tableClass,tableId)=>{
 
 
 // For sorting ascending or descending 
-const flag = { Name: false, Cat: false, Year: false }; 
-let data = [ 
-	{ Name: "HTML", Cat: "Web", Year: "1993" }, 
-	{ 
-		Name: "Java", 
-		Cat: "Programming", 
-		Year: "1995", 
-	}, 
-	{ Name: "JavaScript", Cat: "Web", Year: "1995" }, 
-	{ Name: "MongoDB", Cat: "Database", Year: "2007" }, 
-	{ Name: "Python", Cat: "Programming", Year: "1991" }, 
-]; 
+// const flag = { Name: false, Cat: false, Year: false }; 
+// let data = [ 
+// 	{ Name: "HTML", Cat: "Web", Year: "1993" }, 
+// 	{ 
+// 		Name: "Java", 
+// 		Cat: "Programming", 
+// 		Year: "1995", 
+// 	}, 
+// 	{ Name: "JavaScript", Cat: "Web", Year: "1995" }, 
+// 	{ Name: "MongoDB", Cat: "Database", Year: "2007" }, 
+// 	{ Name: "Python", Cat: "Programming", Year: "1991" }, 
+// ]; 
 
 // To switch update or add form 
-const switchEdit = () => { 
-	document.getElementById("submitItem").style.display = 
-		"none"; 
-	document.getElementById("editItem").style.display = ""; 
-}; 
+// const switchEdit = () => { 
+// 	document.getElementById("submitItem").style.display = 
+// 		"none"; 
+// 	document.getElementById("editItem").style.display = ""; 
+// }; 
 
-const switchAdd = () => { 
-	document.getElementById("submitItem").style.display = 
-		""; 
-	document.getElementById("editItem").style.display = 
-		"none"; 
-}; 
-
-// To create table 
+// const switchAdd = () => { 
+// 	document.getElementById("submitItem").style.display = 
+// 		""; 
+// 	document.getElementById("editItem").style.display = 
+// 		"none"; 
+// }; 
 
 
-// Traverse and insert items to table 
-// data.map((e, i) => addItem(e, i)); 
-
-// For sorting in different cases 
-function sortItems(title) { 
-	remove(); 
-	switch (title) { 
-		case "name": 
-		
-			break; 
-		case "category": 
-			sortCat(); 
-			break; 
-		case "year": 
-			sortYear(); 
-			break; 
-		default: 
-			console.log("Default"); 
-	} 
-	data.map((e, i) => addItem(e, i)); 
-} 
-
-// Clear the table before updation 
 function remove(tableId) { 
 	console.log("removed"); 
 	let table =document.getElementById(tableId);
 	while (table.rows.length > 1) table.deleteRow(-1); 
 } 
 
-// Sort with names 
-function sortName() { 
 
-} 
 
-// Sort with categories 
-function sortCat() { 
-	data.sort((a, b) => { 
-		let fa = a.Cat.toLowerCase(), 
-			fb = b.Cat.toLowerCase(); 
-		console.log(fa, fb); 
+// // Initiate edit form 
+// function edit(c, i) { 
+// 	console.log(c.classList.value); 
+// 	if (c.classList.value === "zoom") { 
+// 		c.classList.add("open"); 
+// 		el = data[i]; 
+// 		switchEdit(); 
 
-		if (fa < fb) { 
-			return -1; 
-		} 
-		if (fa > fb) { 
-			return 1; 
-		} 
-		return 0; 
-	}); 
-	if (flag.Cat) data.reverse(); 
-	flag.Cat = !flag.Cat; 
-} 
+// 		let nameInput = 
+// 			document.getElementById("nameInput"); 
+// 		let catInput = document.getElementById("catInput"); 
+// 		let yearInput = 
+// 			document.getElementById("yearInput"); 
+// 		nameInput.value = el.Name; 
+// 		catInput.value = el.Cat; 
+// 		yearInput.value = el.Year; 
+// 		index = i; 
+// 	} else { 
+// 		c.classList.value = "zoom"; 
+// 		switchAdd(); 
 
-// Sort with year 
-function sortYear() { 
-	data.sort((a, b) => a.Year - b.Year); 
-	if (flag.Year) data.reverse(); 
-	flag.Year = !flag.Year; 
-} 
-
-// To search and filter items 
-function searchItems() { 
-	let input = document 
-		.getElementById("searchInput") 
-		.value.toLowerCase(); 
-	let filterItems = data.filter((e) => { 
-		return ( 
-			e.Name.toLowerCase().includes(input) || 
-			e.Cat.toLowerCase().includes(input) || 
-			e.Year.includes(input) 
-		); 
-	}); 
-
-	remove(); 
-	filterItems.map((e, i) => addItem(e, i)); 
-} 
-
-// Initiate edit form 
-function edit(c, i) { 
-	console.log(c.classList.value); 
-	if (c.classList.value === "zoom") { 
-		c.classList.add("open"); 
-		el = data[i]; 
-		switchEdit(); 
-
-		let nameInput = 
-			document.getElementById("nameInput"); 
-		let catInput = document.getElementById("catInput"); 
-		let yearInput = 
-			document.getElementById("yearInput"); 
-		nameInput.value = el.Name; 
-		catInput.value = el.Cat; 
-		yearInput.value = el.Year; 
-		index = i; 
-	} else { 
-		c.classList.value = "zoom"; 
-		switchAdd(); 
-
-		document.getElementById("nameInput").value = ""; 
-		document.getElementById("catInput").value = ""; 
-		document.getElementById("yearInput").value = ""; 
-		index = -1; 
-	} 
-} 
-
-// Submit edit data 
-function editItem() { 
-	console.log("edit"); 
-	nameInput = document.getElementById("nameInput"); 
-	catInput = document.getElementById("catInput"); 
-	yearInput = document.getElementById("yearInput"); 
-	data[index] = { 
-		Name: nameInput.value, 
-		Cat: catInput.value, 
-		Year: yearInput.value, 
-	}; 
-	remove(); 
-	data.map((e, i) => addItem(e, i)); 
-
-	nameInput.value = ""; 
-	catInput.value = ""; 
-	yearInput.value = ""; 
-	switchAdd(); 
-} 
-
-// Add new data 
-function submitItem() { 
-	console.log("submit clicked"); 
-	nameInput = document.getElementById("nameInput").value; 
-	catInput = document.getElementById("catInput").value; 
-	yearInput = document.getElementById("yearInput").value; 
-	if ( 
-		nameInput === "" || 
-		catInput === "" || 
-		yearInput === ""
-	) { 
-		window.alert("incomplete input data"); 
-		return; 
-	} 
-	data.push({ 
-		Name: nameInput, 
-		Cat: catInput, 
-		Year: yearInput, 
-	}); 
-	document.getElementById("nameInput").value = ""; 
-	document.getElementById("catInput").value = ""; 
-	document.getElementById("yearInput").value = ""; 
-	remove(); 
-	data.map((e, i) => addItem(e, i)); 
-	console.log(data); 
-} 
-
-// Delete specific field 
-function del(el) { 
-	console.log("del clicked", el); 
-	remove(); 
-	data = data.filter((e) => e.Name !== el.Name); 
-	data.map((e, i) => addItem(e, i)); 
-}
+// 		document.getElementById("nameInput").value = ""; 
+// 		document.getElementById("catInput").value = ""; 
+// 		document.getElementById("yearInput").value = ""; 
+// 		index = -1; 
+// 	} 
+// } 
