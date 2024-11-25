@@ -1,0 +1,4 @@
+1. use oop concepts for data rendering from json file, created class and supportive methods to efficiently manipulate data
+
+2. use effective Dom manipulation for implementing given logic use event deligation , dynamic dom manipulation also create some functional methods to efficiently manipulate the dom
+3.event handdling

@@ -1,4 +1,4 @@
-let index = -1;
+
 const BigCatsTableName = document.getElementById("Name");
 const BigCatsTableSpecies = document.getElementById("Species");
 const BigCatsTableSize = document.getElementById("Size");
@@ -9,6 +9,7 @@ const titles = document.getElementsByClassName("titles");
 const Edit = document.getElementsByClassName("Edit");
 const Delete = document.getElementsByClassName("Delete");
 
+
 const validateSizeInput = function (e) {
   console.log(e.value);
   if (e.value < 0) {
@@ -16,6 +17,7 @@ const validateSizeInput = function (e) {
   }
 };
 
+// dynamically adding table data
 function addItem(e, i, TableId) {
   row = document.getElementById(TableId).insertRow(i + 1);
   let c0 = row.insertCell(0);
@@ -47,6 +49,7 @@ function addItem(e, i, TableId) {
 
 let Mydelete;
 
+// created class and some methods for rendering and manipulating data on to the page 
 class Table {
   Animal;
   constructor(animal) {
@@ -167,7 +170,7 @@ const LoadTablesData = async () => {
     const BigFishTable = new Table(BigFish?.BigFish);
     const DogsTable = new Table(Dogs?.Dogs);
     // console.log(BigCatsTable);
-
+// event deligation for data mapping
     Array.from(Tables).forEach((e) => {
       console.log(e.id);
       switch (e.id) {
@@ -185,6 +188,7 @@ const LoadTablesData = async () => {
       }
     });
 
+    // event deligation for sorting machanism
     Array.from(titles).forEach((e) => {
       e.addEventListener("click", (e) => {
         const TitleId = document.getElementById(e.target.id).parentNode.id;
@@ -205,6 +209,7 @@ const LoadTablesData = async () => {
       });
     });
 
+    // dynamic dom manipulation for sorting within all three table
     const SortByField = (id, tableClass, tableId) => {
       console.log(tableId)
       remove(tableId);
@@ -223,6 +228,8 @@ const LoadTablesData = async () => {
       }
       tableClass.Animal.map((e, i) => addItem(e, i, tableId));
     };
+
+// for edit and add row in table
 
     document.getElementById("submitItem1").addEventListener("click", (el) => {
       console.log(el.target.innerText);
@@ -272,6 +279,7 @@ const LoadTablesData = async () => {
       }
     });
 
+//delete specific data row when we click on delete
     Mydelete = (e) => {
       if (e.Species === "Big Cats") {
         BigCatsTable.DeleteAnimal(e.Id);
@@ -294,6 +302,8 @@ const LoadTablesData = async () => {
 
 LoadTablesData();
 
+
+//for removeing table row 
 function remove(tableId) {
   console.log("removed");
   let table = document.getElementById(tableId);
